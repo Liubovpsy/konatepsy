@@ -400,3 +400,89 @@ img{max-width:100%;height:auto}
 .quote .btn{background:#fbf6ef!important;color:var(--ink)!important;border-color:#fbf6ef!important}
 .quote .btn:hover{background:#fff!important}
 @media(max-width:900px){.approachFacts .card h3{font-size:26px}.approachFacts .card{padding:20px}.archBadge.small{right:-8px;max-width:210px}}
+
+/* ================= V14 — motion, in moderation ================= */
+@keyframes riseIn{from{opacity:0;transform:translateY(22px)}}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes navDown{from{opacity:0;transform:translateY(-12px)}}
+@keyframes archReveal{from{clip-path:inset(100% 0 0 0 round 999px 999px 26px 26px)}to{clip-path:inset(0 0 0 0 round 999px 999px 26px 26px)}}
+@keyframes imgSettle{from{transform:scale(1.14)}}
+@keyframes outlineIn{from{opacity:0;transform:translate(14px,-14px)}}
+@keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.94)}}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes draw{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+@keyframes lineGrow{from{transform:scaleX(0)}}
+.ease{animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+.nav{animation:navDown .8s cubic-bezier(.2,.7,.2,1) both}
+/* hero (home) */
+.heroLux .heroCopy>*{animation:riseIn 1s cubic-bezier(.2,.7,.2,1) both}
+.heroLux .heroCopy>:nth-child(1){animation-delay:.15s}.heroLux .heroCopy>:nth-child(2){animation-delay:.28s}
+.heroLux .heroCopy>:nth-child(3){animation:lineGrow 1s .55s cubic-bezier(.2,.7,.2,1) both;transform-origin:left}
+.heroLux .heroCopy>:nth-child(4){animation-delay:.62s}.heroLux .heroCopy>:nth-child(5){animation-delay:.74s}.heroLux .heroCopy>:nth-child(6){animation-delay:.9s}
+.heroArch{animation:archReveal 1.5s .25s cubic-bezier(.65,0,.25,1) both}
+.heroArch img{animation:imgSettle 2.2s .25s cubic-bezier(.2,.7,.2,1) both}
+.archWrap:before{animation:outlineIn 1.4s .9s cubic-bezier(.2,.7,.2,1) both}
+.archWrap .scribble{animation:popIn .8s 1.35s cubic-bezier(.2,.7,.2,1) both,floaty 7s 2.2s ease-in-out infinite}
+.archBadge{animation:popIn .8s 1.55s cubic-bezier(.2,.7,.2,1) both,floaty 6s 2.4s ease-in-out infinite}
+/* inner heroes */
+.heroText>*{animation:riseIn .95s cubic-bezier(.2,.7,.2,1) both}
+.heroText>:nth-child(1){animation-delay:.1s}.heroText>:nth-child(2){animation-delay:.22s}.heroText>:nth-child(3){animation-delay:.36s}.heroText>:nth-child(4){animation-delay:.5s}
+.asideCard{animation:riseIn 1s .45s cubic-bezier(.2,.7,.2,1) both}
+.botanic path{stroke-dasharray:1000;animation:draw 2.8s .3s ease-out both}
+.botanic path:nth-child(n+3){animation-duration:1.6s;animation-delay:1.4s}
+.kicker:before,.no:before{transform-origin:left}
+/* staggered scroll reveals */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.rvImg{clip-path:inset(12% 0 0 0);opacity:.001;transition:clip-path 1.3s cubic-bezier(.65,0,.25,1),opacity .6s}
+.rvImg.in{clip-path:inset(0 0 0 0);opacity:1}
+/* hover polish */
+.pill{position:relative;overflow:hidden;isolation:isolate}
+.pill:after{content:'';position:absolute;z-index:-1;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);transform:skewX(-20deg);transition:left .8s cubic-bezier(.2,.7,.2,1)}
+.pill:hover:after{left:130%}
+.card,.offer,.term,.legalCard,.objection,.signal,.kbcard,.asideCard{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s}
+.card:hover,.offer:not(.featured):hover,.term:hover,.legalCard:hover,.objection:hover,.signal:hover{transform:translateY(-6px);box-shadow:0 26px 60px rgba(60,45,35,.10)}
+.heroIcons svg{transition:transform .5s cubic-bezier(.2,.7,.2,1)}.heroIcons>div:hover svg{transform:translateY(-4px) scale(1.08)}
+.textLink{background:linear-gradient(var(--gold),var(--gold)) left bottom/0 1px no-repeat;transition:background-size .5s}.textLink:hover{background-size:100% 1px}
+@media(prefers-reduced-motion:reduce){.rv,.rvImg{opacity:1!important;transform:none!important;clip-path:none!important}}
+
+/* ================= V15 — name title, approach statement, certificates ================= */
+.pageHero h1.nameTitle{font-size:clamp(52px,6.2vw,96px)!important;line-height:.98!important;text-transform:uppercase;letter-spacing:.04em!important;font-weight:500}
+.pageHero h1.nameTitle em{display:block;text-transform:uppercase}
+.approachFacts{align-self:end}
+.grid2 .display{font-size:clamp(30px,3vw,46px)!important;line-height:1.2}
+.eduIntro{max-width:820px;margin-top:18px}
+/* certificates */
+.certSection{background:var(--ivory)}
+.certHead{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:40px}
+.certHead .display{margin:16px 0 0;max-width:720px}
+.certHint{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8e7d70;margin:0 0 10px}
+.certGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
+.certItem{display:flex;flex-direction:column;gap:12px;padding:12px;border:1px solid var(--line);border-radius:16px;background:#fffdfa;cursor:zoom-in;text-align:left;font:inherit;color:inherit;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,border-color .5s}
+.certItem img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#f4eee6;border-radius:10px;padding:8px;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.certItem span{font-size:13px;line-height:1.45;color:#4a3f38;padding:0 4px 4px}
+.certItem:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(60,45,35,.12);border-color:rgba(181,154,114,.5)}
+.certItem:hover img{transform:scale(1.03)}
+.certMore{display:none;margin:26px auto 0;font:600 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:15px 26px;border:1px solid rgba(42,36,32,.35);border-radius:999px;background:transparent;cursor:pointer;color:var(--ink)}
+.certGrid.collapsed .certItem:nth-child(n+7){display:none}
+.certGrid.collapsed+.certMore{display:block}
+.lightbox{position:fixed;inset:0;z-index:400;background:rgba(34,29,26,.92);display:flex;align-items:center;justify-content:center;padding:60px 70px;opacity:0;transition:opacity .35s}
+.lightbox.show{opacity:1}
+.lightbox[hidden]{display:none}
+.lightbox figure{margin:0;max-width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:16px}
+.lightbox img{max-width:100%;max-height:calc(100svh - 160px);object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.4);background:#fff}
+.lightbox figcaption{color:#efe5d8;font:500 20px var(--serif);text-align:center}
+.lbClose,.lbNav{position:absolute;border:0;background:rgba(255,255,255,.1);color:#fff;width:48px;height:48px;border-radius:50%;font-size:28px;line-height:1;cursor:pointer;transition:background .3s}
+.lbClose:hover,.lbNav:hover{background:rgba(255,255,255,.22)}
+.lbClose{top:18px;right:18px}.lbPrev{left:16px;top:50%;transform:translateY(-50%)}.lbNext{right:16px;top:50%;transform:translateY(-50%)}
+@media(max-width:900px){
+ .photoFirst .heroAside{order:-1;justify-content:center}
+ .photoFirst .heroSplit{gap:30px}
+ .photoFirst .heroAsidePhoto .archWrap{width:78%}
+ .pageHero h1.nameTitle{font-size:clamp(46px,13vw,64px)!important}
+ .grid2 .display{font-size:clamp(28px,7.4vw,36px)!important}
+ .certHead{display:block}.certHint{margin-top:14px}
+ .certGrid{grid-template-columns:1fr 1fr;gap:10px}
+ .certItem{padding:8px;gap:8px}.certItem span{font-size:12px}
+ .lightbox{padding:60px 10px}.lbNav{top:auto;bottom:16px;transform:none}.lbPrev{left:calc(50% - 60px)}.lbNext{right:calc(50% - 60px)}
+}
